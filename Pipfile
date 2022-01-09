@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 opencv-python = "*"
 pandas = "*"
+opencv-contrib-python = "*"
 
 [dev-packages]
 
