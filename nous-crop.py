@@ -3,11 +3,14 @@ import cv2
 
 #crops = pd.read_csv("data/input/csv_annotations_short.csv", header=0, usecols=['filename', 'x1', 'y1', 'x2', 'y2'])
 
-annotationCsvFile = "/NAS/BeeNas/VHL_Algemeen/Projecten/006_plakplaten/ai/NOUSoutput/1200dpi_insect_detection_v0.8/csv_annotations_2.csv"
+annotationCsvFile = "/NAS/BeeNas/VHL_Algemeen/Projecten/006_plakplaten/0009_NFW2019/NOUS_size_exports/Lumped Bee Length/csv_annotations.csv"
+# "/NAS/BeeNas/VHL_Algemeen/Projecten/006_plakplaten/ai/NOUSoutput/1200dpi_insect_detection_v0.8/csv_annotations_2.csv"
 #"data/input/csv_annotations_short.csv"
-inputFolder = "/NAS/BeeNas/VHL_Algemeen/Projecten/006_plakplaten/ai/01_Nous-insect-train_all_st_2021-11/all_scans/"
+inputFolder = "/NAS/BeeNas/VHL_Algemeen/Projecten/006_plakplaten/0009_NFW2019/StickyTraps2019/all_600dpi/"
+# "/NAS/BeeNas/VHL_Algemeen/Projecten/006_plakplaten/ai/01_Nous-insect-train_all_st_2021-11/all_scans/"
 # "data/input/"
-outputFolder = "/NAS/BeeNas/VHL_Algemeen/Projecten/006_plakplaten/ai/01_Nous-insect-train_all_st_2021-11/annotated_insect_crops_2022-01-09_2/"
+outputFolder = "/NAS/BeeNas/VHL_Algemeen/Projecten/006_plakplaten/0009_NFW2019/nous_labels_4sizecat_crops/"
+# "/NAS/BeeNas/VHL_Algemeen/Projecten/006_plakplaten/ai/01_Nous-insect-train_all_st_2021-11/annotated_insect_crops_2022-01-09_2/"
 #"data/output/"
 extractLabel = True
 extractScore = False
@@ -17,7 +20,7 @@ crops = pd.read_csv(annotationCsvFile, header=0, usecols=['filename', 'x1', 'y1'
 # relevant column labels:
 # - filename, x1, y1, x2, y2
 
-for fName, x1, y1, x2, y2, score, label in zip(crops['filename'], crops['x1'], crops['y1'], crops['x2'], crops['y2']):
+for fName, x1, y1, x2, y2, score, label in zip(crops['filename'], crops['x1'], crops['y1'], crops['x2'], crops['y2'], crops['score'], crops['label']):
     x1 = int(x1)
     y1 = int(y1)
     x2 = int(x2)
