@@ -1,5 +1,6 @@
 import pandas as pd
 import cv2
+import numpy as np
 
 #crops = pd.read_csv("data/input/csv_annotations_short.csv", header=0, usecols=['filename', 'x1', 'y1', 'x2', 'y2'])
 
@@ -28,6 +29,20 @@ for fName, x1, y1, x2, y2, score, label in zip(crops['filename'], crops['x1'], c
 
     print(fName, x1, y1, x2, y2, score, label)
     img = cv2.imread(inputFolder+fName+".jpg")
+    # check if image read was successful and try .png if not.
+
+    if not np.any(img):
+        img = cv2.imread(inputFolder + fName + ".png")
+    elif not np.any(img):
+        img = cv2.imread(inputFolder + fName + ".tif")
+    elif not np.any(img):
+        img = cv2.imread(inputFolder + fName + ".tiff")
+    elif not np.any(img):
+        img = cv2.imread(inputFolder + fName + ".bmp")
+    elif not np.any(img):
+        print(" cannot find file fName")
+        break
+
     print(img.shape)
     # check if the crop boundaries are outside the picture and correct
     if x1 < 0:
