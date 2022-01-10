@@ -36,7 +36,7 @@ for fName, x1, y1, x2, y2, score, label in zip(crops['filename'], crops['x1'], c
     if y2 > img.shape[0]:
         y2 = img.shape[0]
 
-    cropFileName = fName + '_' + str(x1) + ':' + str(y1) + ':' + str(x2) + ':' + str(y2)
+    cropFileName = fName + '_' + str(x1) + '-' + str(y1) + '-' + str(x2) + '-' + str(y2)
     if extractScore:
         cropFileName = cropFileName + '_' + score
     if extractLabel:
